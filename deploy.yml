@@ -1,7 +1,6 @@
 ---
 - name: Deploy Maven Artifact (Jenkins User Accessible)
   hosts: localhost
-  become: yes
 
   tasks:
     - name: Ensure deployment directory exists
@@ -12,6 +11,6 @@
 
     - name: Copy the artifact to the deployment directory
       ansible.builtin.copy:
-        src: http://localhost:8080/job/HelloMaven-CI/ws/target/HelloMaven-1.0-SNAPSHOT.jar
+        src: "/mnt/c/Users/Dimple CR/.jenkins/workspace/HelloMaven-CI/target/HelloMaven-1.0-SNAPSHOT.jar"
         dest: /home/admin_user/deployment/HelloMaven.jar
         remote_src: yes
